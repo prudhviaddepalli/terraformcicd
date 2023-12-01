@@ -15,7 +15,6 @@ terraform {
     resource_group_name  = "your-resourcegroup"
     storage_account_name = "storageaccountname"
     container_name       = "containername"
-    key                  = "devcluster.terraform.tfstate"
   }
 }
 
@@ -25,5 +24,5 @@ provider "confluent" {
 }
 
 resource "confluent_environment" "staging" {
-  display_name = "terraformcicd"
+  display_name = var.envname
 }
