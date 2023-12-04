@@ -15,15 +15,15 @@ resource "confluent_service_account" "externalclusteradmin" {
   description  = "Service account to manage 'inventory' Kafka cluster"
 }
 
-resource "confluent_role_binding" "app-manager-kafka-cluster-admin" {
+resource "confluent_role_binding" "app-manager-ext-kafka-cluster-admin" {
   principal   = "User:${confluent_service_account.externalclusteradmin.id}"
   role_name   = "CloudClusterAdmin"
   crn_pattern = confluent_kafka_cluster.external.rbac_crn
 }
 
-resource "confluent_api_key" "app-manager-kafka-api-key" {
-  display_name = "app-manager-kafka-api-key"
-  description  = "Kafka API Key that is owned by 'app-manager' service account"
+resource "confluent_api_key" "app-manager-ext-kafka-api-key" {
+  display_name = "externalclusteradmin"
+  description  = "Kafka API Key that is owned by 'external cluster admin' service account"
   owner {
     id          = confluent_service_account.externalclusteradmin.id
     api_version = confluent_service_account.externalclusteradmin.api_version
