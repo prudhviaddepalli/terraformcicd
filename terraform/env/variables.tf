@@ -25,3 +25,12 @@ variable "extclustername" {
   type        = string
 }
 
+variable "sainternalclusteradmin" {
+  description = "Confluent internal cluster admin Service Account"
+  type        = string
+}
+
+variable "saexternalclusteradmin" {
+  description = "Confluent external cluster admin Service Account"
+  type        = string
+}
