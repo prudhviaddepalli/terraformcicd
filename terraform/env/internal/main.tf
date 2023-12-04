@@ -11,18 +11,18 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "your-resourcegroup"
-    storage_account_name = "storageaccountname"
-    container_name       = "containername"
+    resource_group_name  = "paddepalli"
+    storage_account_name = "terraformcicd"
+    container_name       = "terraformcicd"
   }
 }
 
 data "confluent_environment" "staging" {
   backend = "azurerm"
   config = {
-    storage_account_name = "terraform123abc"
-    container_name       = "terraform-state"
-    key                  = "prod.terraform.tfstate"
+    storage_account_name = "terraformcicd"
+    container_name       = "terraformcicd"
+    key                  =  var.envkey
   }
 }
 
