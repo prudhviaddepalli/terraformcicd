@@ -35,16 +35,3 @@ output "external_cluster_admin_kafka_api_key_secret" {
   value       = confluent_api_key.app-manager-ext-kafka-api-key.secret
   sensitive   = true
 }
-
-output "resource-ids" {
-  value = <<-EOT
- 
-  Kafka API Key:     "${confluent_api_key.app-manager-ext-kafka-api-key.id}"
-  Kafka API Secret:  "${confluent_api_key.app-manager-ext-kafka-api-key.secret}"
-
-  Kafka API Key:     "${confluent_api_key.app-manager-int-kafka-api-key.id}"
-  Kafka API Secret:  "${confluent_api_key.app-manager-int-kafka-api-key.secret}"
-EOT
-
-  sensitive = false
-}
