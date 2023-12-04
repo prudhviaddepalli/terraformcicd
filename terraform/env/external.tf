@@ -39,3 +39,8 @@ resource "confluent_api_key" "app-manager-ext-kafka-api-key" {
       id = confluent_environment.staging.id
     }
   }
+
+depends_on = [
+    confluent_role_binding.app-manager-ext-kafka-cluster-admin
+  ]
+}
