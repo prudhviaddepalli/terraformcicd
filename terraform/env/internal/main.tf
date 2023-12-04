@@ -17,6 +17,15 @@ terraform {
   }
 }
 
+data "confluent_environment" "staging" {
+  backend = "azurerm"
+  config = {
+    storage_account_name = "terraform123abc"
+    container_name       = "terraform-state"
+    key                  = "prod.terraform.tfstate"
+  }
+}
+
 resource "confluent_kafka_cluster" "standard" {
   display_name = var.clustername
   availability = "SINGLE_ZONE"
@@ -24,6 +33,6 @@ resource "confluent_kafka_cluster" "standard" {
   region       = "us-central1"
   basic {}
   environment {
-    id = var.envid
+    id = data.confluent_environment.staging.id
   }
 }
