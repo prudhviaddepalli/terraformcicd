@@ -15,3 +15,8 @@ variable "envname" {
   type        = string
 }
 
+variable "keyname" {
+  description = "Terraform state file name"
+  type        = string
+}
+
