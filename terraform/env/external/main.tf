@@ -16,7 +16,7 @@ terraform {
   }
 }
 
-data "confluent_environment" "staging" {
+data "terraform_env" "staging" {
   backend = "azurerm"
   config = {
     storage_account_name = "terraformcicd"
@@ -32,6 +32,6 @@ resource "confluent_kafka_cluster" "standard" {
   region       = "eastus2"
   basic {}
   environment {
-    id = data.confluent_environment.staging.id
+    id = data.terraform_env.staging.outputs.environment_id
   }
 }
