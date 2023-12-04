@@ -5,5 +5,5 @@ output "resource-ids" {
 
   EOT
 
-  sensitive = true
+  sensitive = false
 }
