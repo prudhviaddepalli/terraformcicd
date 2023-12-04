@@ -11,9 +11,9 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "your-resourcegroup"
     storage_account_name = "storageaccountname"
     container_name       = "containername"
+    key                  = var.keyname
   }
 }
 
