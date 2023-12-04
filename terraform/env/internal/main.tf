@@ -11,7 +11,6 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "paddepalli"
     storage_account_name = "terraformcicd"
     container_name       = "terraformcicd"
   }
