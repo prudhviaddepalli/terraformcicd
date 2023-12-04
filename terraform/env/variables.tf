@@ -8,3 +8,10 @@ variable "confluent_cloud_api_secret" {
   type        = string
   sensitive   = true
 }
+
+
+variable "envname" {
+  description = "Confluent env name"
+  type        = string
+}
+
