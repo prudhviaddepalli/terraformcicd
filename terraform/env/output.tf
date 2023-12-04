@@ -22,7 +22,7 @@ output "internal_cluster_admin_kafka_api_key_id" {
 output "internal_cluster_admin_kafka_api_key_secret" {
   description = "Kafka API Key Secret to consume the data from the target topic"
   value       = confluent_api_key.app-manager-int-kafka-api-key.secret
-  sensitive   = true
+  sensitive   = false
 }
 
 output "external_cluster_admin_kafka_api_key_id" {
@@ -33,5 +33,5 @@ output "external_cluster_admin_kafka_api_key_id" {
 output "external_cluster_admin_kafka_api_key_secret" {
   description = "Kafka API Key Secret to consume the data from the target topic"
   value       = confluent_api_key.app-manager-ext-kafka-api-key.secret
-  sensitive   = true
+  sensitive   = false
 }
