@@ -50,7 +50,7 @@ jobs:
           intclustername = "${{ vars.INTCLUSTERNAME }}"
           extclustername = "${{ vars.EXTCLUSTERNAME }}"
           saexternalclusteradmin = "${{ vars.SAEXT }}"
-          saintternalclusteradmin = "${{ vars.SAINT }}"
+          sainternalclusteradmin = "${{ vars.SAINT }}"
           EOF
           cat terraform.tfvars
           
