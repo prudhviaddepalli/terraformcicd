@@ -1,21 +1,21 @@
-name: 'Terraform-Env Dev'
+name: 'Terraform-Env qa'
 
 on:
   push:
     branches:
-      - dev
+      - qa
     paths:
       - 'terraform/env/*.tf'
-      - '.github/workflows/terraform-env-dev.yml'
+      - '.github/workflows/terraform-env-qa.yml'
 
 permissions:
   contents: read
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Terraform QA'
     runs-on: ubuntu-latest
-    environment: dev
+    environment: qa
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
