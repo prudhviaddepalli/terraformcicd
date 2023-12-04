@@ -11,8 +11,8 @@ terraform {
     }
   }
   backend "azurerm" {
-    storage_account_name = "storageaccountname"
-    container_name       = "containername"
+    storage_account_name = "terraformcicd"
+    container_name       = "terraformcicd"
   }
 }
 
