@@ -7,3 +7,7 @@ output "resource-ids" {
 
   sensitive = false
 }
+
+output "confluent_environment" {
+  value = confluent_environment.staging.id
+}
