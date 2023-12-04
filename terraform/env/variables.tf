@@ -15,4 +15,13 @@ variable "envname" {
   type        = string
 }
 
+variable "intclustername" {
+  description = "Confluent internal cluster name"
+  type        = string
+}
+
+variable "extclustername" {
+  description = "Confluent external cluster name"
+  type        = string
+}
 
