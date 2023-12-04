@@ -33,7 +33,7 @@ jobs:
       
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      working-directory: terraform
+      working-directory: terraform/env
       run: |
           terraform init \
           -backend-config=access_key=${{ secrets.BACKEND_STORAGE_ACCOUNT_ACCESS_KEY }}
