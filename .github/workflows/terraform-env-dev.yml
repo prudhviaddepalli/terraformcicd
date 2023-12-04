@@ -47,6 +47,8 @@ jobs:
           confluent_cloud_api_key = "${{ secrets.CONFLUENT_CLOUD_API_KEY }}"
           confluent_cloud_api_secret = "${{ secrets.CONFLUENT_CLOUD_API_SECRET }}"
           envname = "${{ vars.ENVNAME }}"
+          intclustername = "${{ vars.INTCLUSTERNAME }}"
+          extclustername = "${{ vars.EXTCLUSTERNAME }}"
           EOF
           cat terraform.tfvars
           
