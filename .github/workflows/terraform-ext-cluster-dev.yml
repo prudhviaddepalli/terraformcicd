@@ -1,4 +1,4 @@
-name: 'Terraform-Env Dev'
+name: 'Terraform-ext-cluster-dev'
 
 on:
   pull_request:
