@@ -36,7 +36,8 @@ jobs:
       working-directory: terraform/env
       run: |
           terraform init \
-          -backend-config=access_key=${{ secrets.BACKEND_STORAGE_ACCOUNT_ACCESS_KEY }}
+          -backend-config=access_key=${{ secrets.BACKEND_STORAGE_ACCOUNT_ACCESS_KEY }} \
+          -backend-config=key=${{ vars.TF_ENV_STATEFILE }}
           
     - name: Setup Terraform variables
       working-directory: terraform/env
@@ -46,7 +47,6 @@ jobs:
           confluent_cloud_api_key = "${{ secrets.CONFLUENT_CLOUD_API_KEY }}"
           confluent_cloud_api_secret = "${{ secrets.CONFLUENT_CLOUD_API_SECRET }}"
           envname = "${{ vars.ENVNAME }}"
-          keyname = "${{ vars.TF_ENV_STATEFILE }}"
           EOF
           cat terraform.tfvars
           
