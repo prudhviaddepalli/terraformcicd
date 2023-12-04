@@ -18,12 +18,12 @@ terraform {
 }
 
 resource "confluent_kafka_cluster" "standard" {
-  display_name = "staging-db"
+  display_name = var.clustername
   availability = "SINGLE_ZONE"
-  cloud        = "GCP"
-  region       = "us-central1"
+  cloud        = "AZURE"
+  region       = "eastus2"
   basic {}
   environment {
-    id = confluent_environment.staging.id
+    id = id = var.envid
   }
 }
