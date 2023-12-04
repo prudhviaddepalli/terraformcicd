@@ -13,7 +13,6 @@ terraform {
   backend "azurerm" {
     storage_account_name = "storageaccountname"
     container_name       = "containername"
-    key                  = var.keyname
   }
 }
 
