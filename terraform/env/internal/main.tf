@@ -24,6 +24,6 @@ resource "confluent_kafka_cluster" "standard" {
   region       = "us-central1"
   basic {}
   environment {
-    id = confluent_environment.staging.id
+    id = var.envid
   }
 }
