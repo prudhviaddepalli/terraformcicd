@@ -1,8 +1,8 @@
 output "resource-ids" {
   value = <<-EOT
-  Environment ID:   ${confluent_environment.staging.id}
-  Kafka Cluster ID: ${confluent_kafka_cluster.basic.id}
-  Kafka Cluster Name: ${confluent_kafka_cluster.basic.display_name}
+  Environment ID:   ${data.terraform_remote_state.staging.outputs.environment_id}
+  Kafka Cluster ID: ${confluent_kafka_cluster.standard.id}
+  Kafka Cluster Name: ${confluent_kafka_cluster.standard.display_name}
 
 EOT
 
