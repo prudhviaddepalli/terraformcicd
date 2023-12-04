@@ -15,7 +15,7 @@ variable "clustername" {
   type        = string
 }
 
-variable "envid" {
-  description = "Env id"
+variable "envkey" {
+  description = "Env key to access state file"
   type        = string
 }
