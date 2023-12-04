@@ -46,5 +46,5 @@ output "resource-ids" {
   Kafka API Secret:  "${confluent_api_key.app-manager-int-kafka-api-key.secret}"
 EOT
 
-  sensitive = true
+  sensitive = false
 }
