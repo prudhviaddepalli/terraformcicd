@@ -20,7 +20,7 @@ resource "confluent_role_binding" "app-manager-int-kafka-cluster-admin" {
   crn_pattern = confluent_kafka_cluster.internal.rbac_crn
 }
 
-resource "confluent_api_key" "app-manager-ext-kafka-api-key" {
+resource "confluent_api_key" "app-manager-int-kafka-api-key" {
   display_name = "externalclusteradmin"
   description  = "Kafka API Key that is owned by 'external cluster admin' service account"
   owner {
@@ -38,3 +38,8 @@ resource "confluent_api_key" "app-manager-ext-kafka-api-key" {
       id = confluent_environment.staging.id
     }
   }
+
+depends_on = [
+    confluent_role_binding.app-manager-int-kafka-cluster-admin
+  ]
+}
