@@ -1,10 +1,11 @@
-name: 'Terraform'
+name: 'Terraform-Env Dev'
 
 on:
   pull_request:
+    branches: dev
     paths:
-      - 'terraform/**'
-      - '.github/workflows/terraform.yml'
+      - 'terraform/env/.*'
+      - '.github/workflows/terraform-env-dev.yml'
 
 permissions:
   contents: read
@@ -35,6 +36,7 @@ jobs:
       run: |
           terraform init \
           -backend-config=access_key=${{ secrets.BACKEND_STORAGE_ACCOUNT_ACCESS_KEY }}
+          -backend-config=key=${{ vars.TF_ENV_STATEFILE }}
           
     - name: Setup Terraform variables
       working-directory: terraform/
@@ -43,6 +45,7 @@ jobs:
           cat > terraform.tfvars <<EOF
           confluent_cloud_api_key = "${{ secrets.CONFLUENT_CLOUD_API_KEY }}"
           confluent_cloud_api_secret = "${{ secrets.CONFLUENT_CLOUD_API_SECRET }}"
+          envname = "${{ vars.ENVNAME }}"
           EOF
           cat terraform.tfvars
           
